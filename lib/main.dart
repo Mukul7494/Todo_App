@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/screen/login.dart';
-import './screen/login.dart';
-import 'package:go_router/go_router.dart';
+// import 'package:todo_app/screen/login.dart';
+// import './screen/login.dart';
+// import 'package:go_router/go_router.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import './router.dart';
 
-import 'screen/home.dart';
+// import 'screen/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final router = ref.watch(routerProvider);
     return MaterialApp.router(
+      title: 'Demo App',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primaryColor: Colors.indigoAccent),
-      routeInformationProvider: router.routeInformationProvider,
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
-      // home: const LoginPage(),
-      // home: Home(),
+      routeInformationProvider: router.routeInformationProvider,
     );
   }
 }

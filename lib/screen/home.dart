@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/widget/todo_dailog.dart';
 
 // ignore: must_be_immutable
 class Home extends StatefulWidget {
@@ -27,37 +28,44 @@ class _HomeState extends State<Home> {
           style: TextStyle(color: Colors.black),
         ),
       ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     showDialog(
+      //       context: context,
+      //       builder: (BuildContext context) {
+      //         return AlertDialog(
+      //           title: const Text("Add Information"),
+      //           content: TextField(
+      //             decoration: const InputDecoration(
+      //               hintText: "Add info",
+      //             ),
+      //             onChanged: (String value) {
+      //               input = value;
+      //             },
+      //           ),
+      //           actions: [
+      //             TextButton(
+      //                 onPressed: () {
+      //                   setState(() {
+      //                     info.add(input);
+      //                   });
+      //                   Navigator.of(context).pop();
+      //                 },
+      //                 child: const Text("Add"))
+      //           ],
+      //         );
+      //       },
+      //     );
+      //   },
+      //   child: const Icon(Icons.add),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
+        onPressed: () => showDialog(
+            builder: (context) => const AddTodoDailog(),
             context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: const Text("Add Information"),
-                content: TextField(
-                  decoration: const InputDecoration(
-                    hintText: "Add info",
-                  ),
-                  onChanged: (String value) {
-                    input = value;
-                  },
-                ),
-                actions: [
-                  TextButton(
-                      onPressed: () {
-                        setState(() {
-                          info.add(input);
-                        });
-                        Navigator.of(context).pop();
-                      },
-                      child: const Text("Add"))
-                ],
-              );
-            },
-          );
-        },
+            barrierDismissible: false),
         child: const Icon(Icons.add),
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(5),
         child: ListView.builder(

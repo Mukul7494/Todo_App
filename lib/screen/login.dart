@@ -1,21 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:todo_app/screen/home.dart';
-import 'home.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+// import 'package:go_router/go_router.dart';
+// import 'package:go_router/go_router.dart';
+// import 'package:todo_app/screen/home.dart';
+// import 'home.dart';
+import './utils/user.dart';
 // import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+// class LoginPage extends StatefulWidget {
+//   const LoginPage({Key? key}) : super(key: key);
 
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
+//   @override
+//   State<LoginPage> createState() => _LoginPageState();
+class LoginPage extends ConsumerWidget {
+  LoginPage({Key? key}) : super(key: key);
 
-class _LoginPageState extends State<LoginPage> {
+// class _LoginPageState extends State<LoginPage>
+
   final formKey = GlobalKey<FormState>();
-  String name = "";
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final double height = MediaQuery.of(context).size.height;
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
@@ -89,9 +93,13 @@ class _LoginPageState extends State<LoginPage> {
                         backgroundColor: Colors.amber,
                         child: IconButton(
                           onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              context.go("/homepage");
-                            }
+                            // if (formKey.currentState!.validate()) {
+                            //   context.go("/Homepage");
+                            // }
+                            ref.read(userProvider.notifier).login(
+                                  "myEmail",
+                                  "myPassword",
+                                );
                           },
                           icon: const Icon(Icons.arrow_forward),
                           color: Colors.black,
