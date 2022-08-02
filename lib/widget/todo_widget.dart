@@ -9,7 +9,8 @@ class TodoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Container(
-        padding: const EdgeInsets.all(20),
+        // borderRadius: BorderRadius.circular(15),
+        padding: EdgeInsets.all(20),
         child: Row(
           children: [
             Expanded(
@@ -19,6 +20,7 @@ class TodoWidget extends StatelessWidget {
                 Text(
                   todo.title,
                   style: TextStyle(
+                      fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).primaryColor),
                 ),
