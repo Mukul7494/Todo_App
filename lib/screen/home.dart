@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/widget/todo_dailog.dart';
+import 'package:todo_app/widget/addTodoDailogWidget.dart';
+// import 'package:todo_app/widget/todo_dailog.dart';
 
+import '../widget/todo_dailog.dart';
 import '../widget/todo_list_widget.dart';
 
 // ignore: must_be_immutable
@@ -65,7 +67,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.amber,
         onPressed: () => showDialog(
           context: context,
-          builder: (context) => AddTodoDailog(),
+          builder: (context) => AddTodoDailogWidget(),
           barrierDismissible: false,
         ),
         child: Icon(Icons.add),

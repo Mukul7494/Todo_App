@@ -6,8 +6,8 @@ import 'package:todo_app/widget/todo_widget.dart';
 
 // import 'package:todo_app/widget/todo_widget.dart';
 // final provider = Provider((ref) => TodosProvider());
-final todoProvider = ChangeNotifierProvider<TodosProvider>((ref) {
-  return TodosProvider();
+final todoProvider = ChangeNotifierProvider<TodosProvider2>((ref) {
+  return TodosProvider2();
 });
 
 class TodoListWidget extends ConsumerWidget {

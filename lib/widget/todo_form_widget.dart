@@ -32,12 +32,15 @@ class TodoFormWidget extends StatelessWidget {
       );
 
   Widget buildTitle() => TextFormField(
-        maxLines: 2,
+        maxLines: 1,
         initialValue: title,
         onChanged: onChangedTitle,
+        // validator..............................
         validator: (title) {
-          if (title!.isEmpty) {}
-          return 'The title cannot be empty';
+          if (title!.isEmpty) {
+            return 'The title cannot be empty';
+          }
+          return null;
         },
         decoration: const InputDecoration(
           border: UnderlineInputBorder(),
@@ -45,7 +48,7 @@ class TodoFormWidget extends StatelessWidget {
         ),
       );
   Widget buildDescription() => TextFormField(
-        maxLines: 4,
+        maxLines: 3,
         initialValue: description,
         onChanged: onChangedDescription,
         decoration: const InputDecoration(
