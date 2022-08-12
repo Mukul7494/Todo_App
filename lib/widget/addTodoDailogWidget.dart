@@ -49,6 +49,7 @@ class _AddTodoDailogWidgetState extends ConsumerState<AddTodoDailogWidget> {
 
   void addTodo() {
     final isValid = _formkey.currentState!.validate();
+    final addTodoProvider = ref.read(provider1);
     if (!isValid) {
       return;
     } else {
@@ -58,16 +59,9 @@ class _AddTodoDailogWidgetState extends ConsumerState<AddTodoDailogWidget> {
         description: description,
         createdTime: DateTime.now(),
       );
-      // final addTodoProvider = ref.watch(provider1);
-      // addTodoProvider.addTodo(todo);
-      // Navigator.of(context).pop();
-
-      Consumer(builder: (ctx, WidgetRef ref, child) {
-        final addTodoProvider = ref.watch(provider1);
-        // final todos = addTodoProvider.addTodo(todo);
-
-        return addTodoProvider.addTodo(todo);
-      });
+      Navigator.of(context).pop();
+      addTodoProvider.addTodo(todo);
+      print("Workiiinnggggg");
     }
   }
 }

@@ -17,7 +17,7 @@ class TodoListWidget extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final todos = ref.watch(todoProvider);
 
-    return todos.todo.isEmpty
+    return todos.todos.isEmpty
         ? Center(
             child: Text(
               "No Information Available",
@@ -31,9 +31,9 @@ class TodoListWidget extends ConsumerWidget {
               height: 6,
               color: Color.fromARGB(255, 230, 228, 228),
             ),
-            itemCount: todos.todo.length,
+            itemCount: todos.todos.length,
             itemBuilder: (BuildContext context, int index) {
-              final todo = todos.todo[index];
+              final todo = todos.todos[index];
               return TodoWidget(
                 todo: todo,
               );

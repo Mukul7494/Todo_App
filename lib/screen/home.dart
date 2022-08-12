@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todo_app/widget/addTodoDailogWidget.dart';
 // import 'package:todo_app/widget/todo_dailog.dart';
 
-import '../widget/todo_dailog.dart';
+// import '../widget/todo_dailog.dart';
 import '../widget/todo_list_widget.dart';
 
 // ignore: must_be_immutable
@@ -61,9 +61,6 @@ class _HomeState extends State<Home> {
       ),
       body: tabs[selectedIndex],
       floatingActionButton: FloatingActionButton(
-        // shape: RoundedRectangleBorder(
-        //   borderRadius: BorderRadius.circular(20),
-        // ),
         backgroundColor: Colors.amber,
         onPressed: () => showDialog(
           context: context,
@@ -75,43 +72,3 @@ class _HomeState extends State<Home> {
     );
   }
 }
-      
-//       floatingActionButton: FloatingActionButton(
-//         onPressed: () => showDialog(
-//             builder: (context) => const AddTodoDailog(),
-//             context: context,
-//             barrierDismissible: false),
-//         child: const Icon(Icons.add),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(5),
-//         child: ListView.builder(
-//             itemCount: info.length,
-//             itemBuilder: (BuildContext context, int index) {
-//               return Dismissible(
-//                   key: Key(info[index]),
-//                   child: Card(
-//                     elevation: 5,
-//                     margin: const EdgeInsets.all(8),
-//                     shape: RoundedRectangleBorder(
-//                       borderRadius: BorderRadius.circular(16),
-//                     ),
-//                     child: ListTile(
-//                       title: Text(
-//                         info[index],
-//                       ),
-//                       trailing: IconButton(
-//                         icon: const Icon(Icons.delete_forever_rounded),
-//                         onPressed: () {
-//                           setState(() {
-//                             info.removeAt(index);
-//                           });
-//                         },
-//                       ),
-//                     ),
-//                   ));
-//             }),
-//       ),
-//     );
-//   }
-// }
