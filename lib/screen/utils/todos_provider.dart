@@ -30,11 +30,10 @@ class TodosProvider2 extends ChangeNotifier {
       description: "very noooice",
     ),
   ];
-  List<Todo> get todos => _todos.toList();
+  List<Todo> get todos => _todos;
 
   void addTodo(Todo todo) {
     _todos.add(todo);
     notifyListeners();
-    print("i am working too");
   }
 }

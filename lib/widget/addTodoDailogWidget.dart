@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:todo_app/widget/todo_form_widget.dart';
-
+import 'package:todo_app/widget/todo_list_widget.dart';
 import '../modules/todos.dart';
-import '../screen/utils/todos_provider.dart';
+// import '../screen/utils/todos_provider.dart';
 
 class AddTodoDailogWidget extends ConsumerStatefulWidget {
   const AddTodoDailogWidget({Key? key}) : super(key: key);
@@ -14,8 +14,6 @@ class AddTodoDailogWidget extends ConsumerStatefulWidget {
 }
 
 class _AddTodoDailogWidgetState extends ConsumerState<AddTodoDailogWidget> {
-  final provider1 =
-      ChangeNotifierProvider<TodosProvider2>((ref) => TodosProvider2());
   final _formkey = GlobalKey<FormState>();
   String title = '';
   String description = '';
@@ -47,21 +45,20 @@ class _AddTodoDailogWidgetState extends ConsumerState<AddTodoDailogWidget> {
         ),
       );
 
-  void addTodo() {
+  addTodo() {
     final isValid = _formkey.currentState!.validate();
-    final addTodoProvider = ref.read(provider1);
     if (!isValid) {
       return;
-    } else {
-      final todo = Todo(
-        id: DateTime.now().toString(),
-        title: title,
-        description: description,
-        createdTime: DateTime.now(),
-      );
-      Navigator.of(context).pop();
-      addTodoProvider.addTodo(todo);
-      print("Workiiinnggggg");
     }
+
+    final todo = Todo(
+      id: DateTime.now().toString(),
+      title: title,
+      description: description.toString(),
+      createdTime: DateTime.now(),
+    );
+    final addTodoProvider = ref.read(todoProvider.notifier);
+    addTodoProvider.addTodo(todo);
+    Navigator.of(context).pop();
   }
 }

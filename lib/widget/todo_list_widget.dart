@@ -11,7 +11,7 @@ final todoProvider = ChangeNotifierProvider<TodosProvider2>((ref) {
 });
 
 class TodoListWidget extends ConsumerWidget {
-  // const TodoListWidget({Key? key}) : super(key: key);
+  const TodoListWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

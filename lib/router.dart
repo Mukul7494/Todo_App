@@ -29,10 +29,10 @@ class RouterNotifier extends ChangeNotifier {
     final user = _ref.read(userProvider);
 
     _ref.read(userProvider.notifier).isAuthenticated();
-    final areWeLoggingIn = state.location == '/login';
+    final areWeLoggingIn = state.location == '/';
 
     if (user == null) {
-      return areWeLoggingIn ? null : '/login';
+      return areWeLoggingIn ? null : '/';
     }
     if (areWeLoggingIn) return '/Homepage';
     return null;
@@ -40,7 +40,7 @@ class RouterNotifier extends ChangeNotifier {
 
   List<GoRoute> get _routes => [
         GoRoute(
-          path: '/login',
+          path: '/',
           builder: (context, _) => Home(),
         ),
         GoRoute(
